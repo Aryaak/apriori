@@ -345,7 +345,7 @@ CREATE TABLE `itemset4` (
   `support` double DEFAULT NULL,
   `lolos` tinyint DEFAULT NULL,
   `id_process` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
