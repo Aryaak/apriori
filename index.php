@@ -13,7 +13,7 @@ if (isset($_GET['menu'])) {
 //}
 
 if (
-    !isset($_SESSION['apriori_parfum_id']) &&
+    !isset($_SESSION['apriori_penjualan_id']) &&
     ($menu != 'tentang' & $menu != 'not_found' & $menu != 'forbidden')
 ) {
     header("location:login.php");

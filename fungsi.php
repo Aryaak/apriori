@@ -1,10 +1,10 @@
 <?php
 
 function can_access_menu($menu){
-    if($_SESSION['apriori_parfum_level']==2 & ($menu=='hasil_rule' || $menu=='view_rule')){
+    if($_SESSION['apriori_penjualan_level']==2 & ($menu=='hasil_rule' || $menu=='view_rule')){
         return true;
     }
-    if($_SESSION['apriori_parfum_level']==1){
+    if($_SESSION['apriori_penjualan_level']==1){
         return true;
     }
     return false;
@@ -811,5 +811,3 @@ function format_date_db($date){
     $date_ex = explode("-", $date);
     return $date_ex[2]."-".$date_ex[1]."-".$date_ex[0];
 }
-
-?>
