@@ -1,5 +1,3 @@
-# apriori_toko_penjualan
+# apriori
 
 Data mining asosiasi metode apriori Data Penjualan
-
-# apriori
