@@ -415,100 +415,101 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
                    <th>Keterangan</th>
                </tr>";
     $a = 0;
-    $empatVariasiItem = $valueIn_itemset4 =  array();
-    $itemset4_var1 = $itemset4_var2 = $itemset4_var3 = $itemset4_var4 = $jumlahItemset4 = $supportItemset4 = array();
-    $no = 1;
-    // while ($a <= count($itemset3_var1)) {
-    //     $b = 0;
-    //     while ($b <= count($itemset3_var1)) {
-    //         if ($a != $b) {
-    //             $itemset1a = $itemset3_var1[$a];
-    //             $itemset1b = $itemset3_var1[$b];
+    if (count($itemset3_var1) > 0) {
+        $empatVariasiItem = $valueIn_itemset4 =  array();
+        $itemset4_var1 = $itemset4_var2 = $itemset4_var3 = $itemset4_var4 = $jumlahItemset4 = $supportItemset4 = array();
+        $no = 1;
+        // while ($a <= count($itemset3_var1)) {
+        //     $b = 0;
+        //     while ($b <= count($itemset3_var1)) {
+        //         if ($a != $b) {
+        //             $itemset1a = $itemset3_var1[$a];
+        //             $itemset1b = $itemset3_var1[$b];
 
-    //             $itemset2a = $itemset3_var2[$a];
-    //             $itemset2b = $itemset3_var2[$b];
+        //             $itemset2a = $itemset3_var2[$a];
+        //             $itemset2b = $itemset3_var2[$b];
 
-    //             $itemset3a = $itemset3_var3[$a];
-    //             $itemset3b = $itemset3_var3[$b];
+        //             $itemset3a = $itemset3_var3[$a];
+        //             $itemset3b = $itemset3_var3[$b];
 
-    //             if (!empty($itemset1a) && !empty($itemset1b) && !empty($itemset2a) && !empty($itemset2b) && !empty($itemset3a) && !empty($itemset3b)) {
+        //             if (!empty($itemset1a) && !empty($itemset1b) && !empty($itemset2a) && !empty($itemset2b) && !empty($itemset3a) && !empty($itemset3b)) {
 
-    //                 $temp_array = get_variasi_itemset4(
-    //                     $empatVariasiItem,
-    //                     $itemset1a,
-    //                     $itemset1b,
-    //                     $itemset2a,
-    //                     $itemset2b,
-    //                     $itemset3a,
-    //                     $itemset3b
-    //                 );
+        //                 $temp_array = get_variasi_itemset4(
+        //                     $empatVariasiItem,
+        //                     $itemset1a,
+        //                     $itemset1b,
+        //                     $itemset2a,
+        //                     $itemset2b,
+        //                     $itemset3a,
+        //                     $itemset3b
+        //                 );
 
-    //                 if (count($temp_array) > 0) {
-    //                     //variasi-variasi itemset isi ke array
-    //                     $empatVariasiItem = array_merge($empatVariasiItem, $temp_array);
+        //                 if (count($temp_array) > 0) {
+        //                     //variasi-variasi itemset isi ke array
+        //                     $empatVariasiItem = array_merge($empatVariasiItem, $temp_array);
 
-    //                     foreach ($temp_array as $idx => $val_nilai) {
-    //                         $itemset1 = $itemset2 = $itemset3 = $itemset4 =  "";
+        //                     foreach ($temp_array as $idx => $val_nilai) {
+        //                         $itemset1 = $itemset2 = $itemset3 = $itemset4 =  "";
 
-    //                         $aaa = 0;
-    //                         foreach ($val_nilai as $idx1 => $v_nilai) {
-    //                             if ($aaa == 0) {
-    //                                 $itemset1 = $v_nilai;
-    //                             }
-    //                             if ($aaa == 1) {
-    //                                 $itemset2 = $v_nilai;
-    //                             }
-    //                             if ($aaa == 2) {
-    //                                 $itemset3 = $v_nilai;
-    //                             }
-    //                             if ($aaa == 3) {
-    //                                 $itemset4 = $v_nilai;
-    //                             }
-    //                             $aaa++;
-    //                         }
+        //                         $aaa = 0;
+        //                         foreach ($val_nilai as $idx1 => $v_nilai) {
+        //                             if ($aaa == 0) {
+        //                                 $itemset1 = $v_nilai;
+        //                             }
+        //                             if ($aaa == 1) {
+        //                                 $itemset2 = $v_nilai;
+        //                             }
+        //                             if ($aaa == 2) {
+        //                                 $itemset3 = $v_nilai;
+        //                             }
+        //                             if ($aaa == 3) {
+        //                                 $itemset4 = $v_nilai;
+        //                             }
+        //                             $aaa++;
+        //                         }
 
 
-    //                         $jml_itemset4 = jumlah_itemset4($dataTransaksi, $itemset1, $itemset2, $itemset3, $itemset4);
-    //                         $support4 = ($jml_itemset4 / $jumlah_transaksi) * 100;
-    //                         $lolos = ($support4 >= $min_support) ? 1 : 0;
+        //                         $jml_itemset4 = jumlah_itemset4($dataTransaksi, $itemset1, $itemset2, $itemset3, $itemset4);
+        //                         $support4 = ($jml_itemset4 / $jumlah_transaksi) * 100;
+        //                         $lolos = ($support4 >= $min_support) ? 1 : 0;
 
-    //                         $valueIn_itemset4[] = "('$itemset1','$itemset2','$itemset3', '$itemset4', '$jml_itemset4','$support4','$lolos','$id_process')";
+        //                         $valueIn_itemset4[] = "('$itemset1','$itemset2','$itemset3', '$itemset4', '$jml_itemset4','$support4','$lolos','$id_process')";
 
-    //                         if ($lolos) {
-    //                             $itemset4_var1[] = $itemset1;
-    //                             $itemset4_var2[] = $itemset2;
-    //                             $itemset4_var3[] = $itemset3;
-    //                             $itemset4_var3[] = $itemset3;
-    //                             $itemset4_var4[] = $itemset4;
-    //                             $jumlahItemset4[] = $jml_itemset4;
-    //                             $supportItemset4[] = $support4;
-    //                         }
+        //                         if ($lolos) {
+        //                             $itemset4_var1[] = $itemset1;
+        //                             $itemset4_var2[] = $itemset2;
+        //                             $itemset4_var3[] = $itemset3;
+        //                             $itemset4_var3[] = $itemset3;
+        //                             $itemset4_var4[] = $itemset4;
+        //                             $jumlahItemset4[] = $jml_itemset4;
+        //                             $supportItemset4[] = $support4;
+        //                         }
 
-    //                         if ($lolos != 1) {
-    //                             echo "<tr style='background-color: #ff8c8c'>";
-    //                         } else {
-    //                             echo "<tr>";
-    //                         }
-    //                         echo "<td>" . $no . "</td>";
-    //                         echo "<td>" . $itemset1 . "</td>";
-    //                         echo "<td>" . $itemset2 . "</td>";
-    //                         echo "<td>" . $itemset3 . "</td>";
-    //                         echo "<td>" . $itemset4 . "</td>";
-    //                         echo "<td>" . $jml_itemset4 . "</td>";
-    //                         echo "<td>" . price_format($support4) . "</td>";
-    //                         echo "<td>" . (($lolos == 1) ? "Lolos" : "Tidak Lolos") . "</td>";
-    //                         echo "</tr>";
-    //                         $no++;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         $b++;
-    //     }
-    //     $a++;
-    // }
+        //                         if ($lolos != 1) {
+        //                             echo "<tr style='background-color: #ff8c8c'>";
+        //                         } else {
+        //                             echo "<tr>";
+        //                         }
+        //                         echo "<td>" . $no . "</td>";
+        //                         echo "<td>" . $itemset1 . "</td>";
+        //                         echo "<td>" . $itemset2 . "</td>";
+        //                         echo "<td>" . $itemset3 . "</td>";
+        //                         echo "<td>" . $itemset4 . "</td>";
+        //                         echo "<td>" . $jml_itemset4 . "</td>";
+        //                         echo "<td>" . price_format($support4) . "</td>";
+        //                         echo "<td>" . (($lolos == 1) ? "Lolos" : "Tidak Lolos") . "</td>";
+        //                         echo "</tr>";
+        //                         $no++;
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         $b++;
+        //     }
+        //     $a++;
+        // }
 
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
             <td>1</td>
             <td>A1</td>
             <td>A2</td>
@@ -518,7 +519,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
             <td>30%</td>
             <td>Tidak Lolos</td>
         </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
         <td>2</td>
         <td>A1</td>
         <td>A2</td>
@@ -528,7 +529,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
         <td>20%</td>
         <td>Tidak Lolos</td>
     </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
     <td>3</td>
     <td>A1</td>
     <td>A2</td>
@@ -538,7 +539,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
     <td>20%</td>
     <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>4</td>
 <td>A1</td>
 <td>A2</td>
@@ -548,7 +549,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>10%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>5</td>
 <td>A1</td>
 <td>A2</td>
@@ -558,7 +559,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>10%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>6</td>
 <td>A1</td>
 <td>A2</td>
@@ -568,7 +569,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>30%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>7</td>
 <td>A1</td>
 <td>A3</td>
@@ -578,7 +579,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>10%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>8</td>
 <td>A1</td>
 <td>A3</td>
@@ -588,7 +589,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>5%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>9</td>
 <td>A1</td>
 <td>A4</td>
@@ -598,7 +599,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>10%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>10</td>
 <td>A1</td>
 <td>A3</td>
@@ -608,7 +609,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>20%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>11</td>
 <td>A2</td>
 <td>A3</td>
@@ -618,7 +619,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>15%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>11</td>
 <td>A2</td>
 <td>A3</td>
@@ -628,7 +629,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>15%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>12</td>
 <td>A2</td>
 <td>A3</td>
@@ -638,7 +639,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>25%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>13</td>
 <td>A2</td>
 <td>A4</td>
@@ -648,7 +649,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>25%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>14</td>
 <td>A2</td>
 <td>A4</td>
@@ -658,7 +659,7 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>15%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "<tr style='background-color: #ff8c8c'>
+        echo "<tr style='background-color: #ff8c8c'>
 <td>15</td>
 <td>A3</td>
 <td>A4</td>
@@ -668,17 +669,17 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>20%</td>
 <td>Tidak Lolos</td>
 </tr>";
-    echo "</table>";
+        echo "</table>";
 
-    //insert into itemset4 one query with many value
-    $value_insert_itemset4 = implode(",", $valueIn_itemset4);
-    $sql_insert_itemset4 = "INSERT INTO itemset4(atribut1, atribut2, atribut3, atribut4, jumlah, support, lolos, id_process) "
-        . " VALUES " . $value_insert_itemset4;
-    $db_object->db_query($sql_insert_itemset4);
+        //insert into itemset4 one query with many value
+        $value_insert_itemset4 = implode(",", $valueIn_itemset4);
+        $sql_insert_itemset4 = "INSERT INTO itemset4(atribut1, atribut2, atribut3, atribut4, jumlah, support, lolos, id_process) "
+            . " VALUES " . $value_insert_itemset4;
+        $db_object->db_query($sql_insert_itemset4);
 
-    //display itemset yg lolos
-    echo "<br><strong>Itemset 4 yang lolos:</strong><br>";
-    echo "<table class='table table-bordered table-striped  table-hover'>
+        //display itemset yg lolos
+        echo "<br><strong>Itemset 4 yang lolos:</strong><br>";
+        echo "<table class='table table-bordered table-striped  table-hover'>
                <tr>
                    <th>No</th>
                    <th>Item 1</th>
@@ -688,22 +689,23 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
                    <th>Jumlah</th>
                    <th>Support</th>
                </tr>";
-    $no = 1;
-    echo "<tr>";
-    echo "<td colspan='7' class='text-center'>Proses di hentikan, karena tidak memenuhi minimum support</td>";
-    echo "</tr>";
-    // foreach ($itemset3_var1 as $key => $value) {
-    //     echo "<tr>";
-    //     echo "<td>" . $no . "</td>";
-    //     echo "<td>" . $value . "</td>";
-    //     echo "<td>" . $itemset3_var2[$key] . "</td>";
-    //     echo "<td>" . $itemset3_var3[$key] . "</td>";
-    //     echo "<td>" . $jumlahItemset3[$key] . "</td>";
-    //     echo "<td>" . price_format($supportItemset3[$key]) . "</td>";
-    //     echo "</tr>";
-    //     $no++;
-    // }
-    echo "</table>";
+        $no = 1;
+        echo "<tr>";
+        echo "<td colspan='7' class='text-center'>Proses di hentikan, karena tidak memenuhi minimum support</td>";
+        echo "</tr>";
+        // foreach ($itemset3_var1 as $key => $value) {
+        //     echo "<tr>";
+        //     echo "<td>" . $no . "</td>";
+        //     echo "<td>" . $value . "</td>";
+        //     echo "<td>" . $itemset3_var2[$key] . "</td>";
+        //     echo "<td>" . $itemset3_var3[$key] . "</td>";
+        //     echo "<td>" . $jumlahItemset3[$key] . "</td>";
+        //     echo "<td>" . price_format($supportItemset3[$key]) . "</td>";
+        //     echo "</tr>";
+        //     $no++;
+        // }
+        echo "</table>";
+    }
 
     //hitung confidence
     $confidence_from_itemset = 0;

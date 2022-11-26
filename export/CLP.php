@@ -27,6 +27,7 @@ while ($data = $db_object->db_fetch_array($db_query)) {
     $cell[$i][0] = price_format($data['confidence']);
     $cell[$i][1] = "Jika konsumen membeli " . $data['kombinasi1']
         . ", maka konsumen juga akan membeli " . $data['kombinasi2'];
+    $cell[$i][2] = $data['min_support'];
     $i++;
 }
 
@@ -61,15 +62,17 @@ $pdf->Ln();
 $pdf->Ln();
 
 $pdf->Cell(1, 1, 'No', 'LRTB', 0, 'C');
-$pdf->Cell(24, 1, 'Rule', 'LRTB', 0, 'C');
+$pdf->Cell(21, 1, 'Rule', 'LRTB', 0, 'C');
 $pdf->Cell(3, 1, 'Confidence', 'LRTB', 0, 'C');
+$pdf->Cell(3, 1, 'Support', 'LRTB', 0, 'C');
 $pdf->Ln();
 $pdf->SetFont('Times', "", 10);
 for ($j = 0; $j < $i; $j++) {
     //menampilkan data dari hasil query database
     $pdf->Cell(1, 1, $j + 1, 'LBTR', 0, 'C');
-    $pdf->Cell(24, 1, $cell[$j][1], 'LBTR', 0, 'L');
+    $pdf->Cell(21, 1, $cell[$j][1], 'LBTR', 0, 'L');
     $pdf->Cell(3, 1, $cell[$j][0], 'LBTR', 0, 'C');
+    $pdf->Cell(3, 1, $cell[$j][2], 'LBTR', 0, 'C');
     $pdf->Ln();
 }
 

@@ -52,6 +52,7 @@ include_once "import/excel_reader2.php";
                     $table = "transaksi";
                     // $produkIn = get_produk_to_in($temp_produk);
                     $temp_date = format_date($value[1]);
+
                     $produkIn = $value[2];
 
                     //mencegah ada jarak spasi

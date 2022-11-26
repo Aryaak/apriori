@@ -3,7 +3,7 @@
         <div class="footer-content">
             <span class="bigger-120">
                 <span>Data Mining Apriori - </span>
-                <span class=" bolder text-success">Arya Rizky Tri Putra</span>
+                <span class=" bolder text-success">healthynoona</span>
             </span>
         </div>
     </div>
