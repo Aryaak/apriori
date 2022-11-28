@@ -670,7 +670,8 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
 <td>Tidak Lolos</td>
 </tr>";
         echo "</table>";
-
+    }
+    if (count($itemset3_var1) > 0) {
         //insert into itemset4 one query with many value
         $value_insert_itemset4 = implode(",", $valueIn_itemset4);
         $sql_insert_itemset4 = "INSERT INTO itemset4(atribut1, atribut2, atribut3, atribut4, jumlah, support, lolos, id_process) "
@@ -680,15 +681,15 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
         //display itemset yg lolos
         echo "<br><strong>Itemset 4 yang lolos:</strong><br>";
         echo "<table class='table table-bordered table-striped  table-hover'>
-               <tr>
-                   <th>No</th>
-                   <th>Item 1</th>
-                   <th>Item 2</th>
-                   <th>Item 3</th>
-                   <th>Item 4</th>
-                   <th>Jumlah</th>
-                   <th>Support</th>
-               </tr>";
+           <tr>
+               <th>No</th>
+               <th>Item 1</th>
+               <th>Item 2</th>
+               <th>Item 3</th>
+               <th>Item 4</th>
+               <th>Jumlah</th>
+               <th>Support</th>
+           </tr>";
         $no = 1;
         echo "<tr>";
         echo "<td colspan='7' class='text-center'>Proses di hentikan, karena tidak memenuhi minimum support</td>";
@@ -704,8 +705,10 @@ function mining_process($db_object, $min_support, $min_confidence, $start_date, 
         //     echo "</tr>";
         //     $no++;
         // }
-        echo "</table>";
     }
+
+    echo "</table>";
+
 
     //hitung confidence
     $confidence_from_itemset = 0;
