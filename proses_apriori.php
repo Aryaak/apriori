@@ -144,9 +144,9 @@ include_once "display_mining.php";
                         $id_process
                     );
                     if ($result) {
-                        display_success("Proses mining selesai");
+                        // display_success("Proses mining selesai");
                     } else {
-                        display_error("Gagal mendapatkan aturan asosiasi");
+                        // display_error("Gagal mendapatkan aturan asosiasi");
                     }
 
                     display_process_hasil_mining($db_object, $id_process);
